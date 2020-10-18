@@ -18,18 +18,6 @@ require 'pry'
 #   }
 # }
 
-def all_holidays_with_bbq(holiday_hash)
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
-  red = holiday_hash.map do |season, holidays|
-    holidays.map do |holiday, supplies|
-      holiday if supplies.include?("BBQ")
-      end
-    end
-    red.flatten.compact
-
-end
-
 def second_supply_for_fourth_of_july(holiday_hash)
   # return the second element in the 4th of July array
   holiday_hash[:summer][:fourth_of_july][1]
@@ -83,4 +71,16 @@ def all_supplies_in_holidays(holiday_hash)
       puts "  #{holiday.to_s.split("_").map {|word| word.capitalize}.join(" ")}" + ":" " #{supplies.join(", ")}"
     end
   end
+end
+
+
+def all_holidays_with_bbq(holiday_hash)
+  # return an array of holiday names (as symbols) where supply lists
+  # include the string "BBQ"
+  red = holiday_hash.map do |season, holidays|
+    holidays.map do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
+      end
+    end
+    red.flatten.compact
 end
